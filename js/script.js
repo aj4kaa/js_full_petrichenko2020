@@ -34,22 +34,12 @@ let personalMovieDB = {
 	privat: false
 };
 
-// personalMovieDB.count = numberOfFilms;
-
-// console.log(personalMovieDB);
-
 let film = prompt('Last was whatched movie?', ''),
 	ratig = prompt('How rating you give this film?', ''),
 	film2 = prompt('Last was whatched movie?', ''),
 	ratig2 = prompt('How rating you give this film?', '');
 
-/* let movies = {
-	[film]: ratig
-}; */
-// movies[film] = ratig;
-
 personalMovieDB.movies[film] = ratig;
 personalMovieDB.movies[film2] = ratig2;
-
 
 console.log(personalMovieDB);
