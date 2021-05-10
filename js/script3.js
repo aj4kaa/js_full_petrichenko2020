@@ -21,6 +21,22 @@
 
 Проверить, чтобы все работало без ошибок в консоли */
 
+/* Задание на урок 2 :
+
+1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
+
+2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
+отменить ответ или ввести название фильма длинее, чем 50 символов. Если это происходит - 
+возвращаем пользователя к вопросам опять
+
+3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
+"Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
+"Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
+
+4) Потренироваться и переписать цикл еще двумя способами*/
+
+// Код возьмите из предыдущего домашнего задания
+
 'use strict';
 
 const numberOfFilms = +prompt("How much movies you watched?", "");
@@ -33,12 +49,31 @@ const personalMovieDB = {
 	privat: false
 };
 
-const lastMovie = prompt('One of the latest films you watched', ''),
-	lastMovieRate = prompt('Please rate this film', ''),
-	lastMovie2 = prompt('One of the latest films you watched too', ''),
+if (numberOfFilms < 10) {
+	console.log("Просмотрено довольно мало фильмов");
+} else if (numberOfFilms >= 10 && numberOfFilms <= 30) {
+	console.log("Вы классический зритель");
+} else if (numberOfFilms > 30) {
+	console.log("Вы киноман");
+} else {
+	console.log("произошла ошибка");
+}
+
+for (let i = 1; i < 3; i++) {
+	let lastMovie = prompt('One of the latest films you watched', ''),
+		lastMovieRate = prompt('Please rate this film', '');
+		if (lastMovie != "" && lastMovie.length < 10) {
+			personalMovieDB.movies[lastMovie] = lastMovieRate;
+			console.log(lastMovie.length);
+		} else {
+			i--;
+		}
+}
+
+/* const	lastMovie2 = prompt('One of the latest films you watched too', ''),
 	lastMovieRate2 = prompt('Please rate this film', '');
 
 personalMovieDB.movies[lastMovie] = lastMovieRate;
 personalMovieDB.movies[lastMovie2] = lastMovieRate2;
-
+ */
 console.log(personalMovieDB);
