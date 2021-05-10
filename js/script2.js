@@ -1,67 +1,39 @@
-'use strict';
+"use strict";
 
-/* const str = 'hello world!';
+/* let qwe = Math.round(new Date().getTime()/1000.0);
+console.log(qwe); */
 
-console.log(str.toLocaleUpperCase());
-console.log(str);
+const arr = [1, 21, 33, 4, 74, 9];
+arr.sort(comp);
+console.log(arr);
 
-console.log(str.indexOf('world'));
+function comp(a, b) {
+	return a - b;
+}
 
-const logg = 'Hello Dmitry!';
+/* arr.push(10);
+arr.pop();
 
-console.log(logg.slice(6));
-console.log(logg.substring(6, 12));
-console.log(logg.substr(6, 6));
+for (let i = 0; i < arr.length; i++) {
+	console.log(arr[i]);
+}
+
+for (let value of arr) {
+	console.log(value);
+}
  */
 
-const num = 12.2;
-console.log(Math.round(num));
+//  arr[99] = 0;
 
-const test = '12.2px';
-console.log(parseInt(test));
-console.log(parseFloat(test));
+//  console.log(arr.length);
 
+// console.log(arr);
 
+arr.forEach(function(item, i, arr) {
+	console.log(`${i} : ${item} внутри массива ${arr}`);
+});
 
-
-
-
-/* let num = 20;
-
-function showFirstMessage(text) {
-	console.log(text);
-	// let num =30;
-	console.log(num);
-}
-
-showFirstMessage('Hello World!');
-console.log(num);
-
-function calc(a, b) {
-	return (a * b);
-}
-
-console.log(calc(21, 30));
-
-function ret() {
-	let num = 50;
-
-	return num;
-}
-
-const anotherNum = ret();
-
-console.log(anotherNum); */
-
-/* const logger = function() {
-	console.log('qwesad');
-};
-
-logger();
-
-const calc = (a, b) => {
-	console.log('qweqwe');
-	return a + b;
-};
-
-console.log(calc(23, 44)); */
+const str = prompt('', '');
+const product = str.split(", ");
+product.sort();
+console.log(product.join('; '));
