@@ -59,16 +59,38 @@ if (numberOfFilms < 10) {
 	console.log("произошла ошибка");
 }
 
-for (let i = 1; i < 3; i++) {
+// console.log(Object.keys(personalMovieDB.movies).length);
+
+/* for (let i = 1; i < 3; i++) {
 	let lastMovie = prompt('One of the latest films you watched', ''),
 		lastMovieRate = prompt('Please rate this film', '');
-		if (lastMovie != "" && lastMovie.length < 10) {
+		if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
 			personalMovieDB.movies[lastMovie] = lastMovieRate;
-			console.log(lastMovie.length);
 		} else {
 			i--;
+			console.log('error');
 		}
-}
+} */
+
+/* while (Object.keys(personalMovieDB.movies).length < 2) {
+	let lastMovie = prompt('One of the latest films you watched', ''),
+		lastMovieRate = prompt('Please rate this film', '');
+		if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
+			personalMovieDB.movies[lastMovie] = lastMovieRate;
+		} else {
+			console.log('error');
+		}
+} */
+
+do {
+	let lastMovie = prompt('One of the latest films you watched', ''),
+	lastMovieRate = prompt('Please rate this film', '');
+	if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
+		personalMovieDB.movies[lastMovie] = lastMovieRate;
+	} else {
+		console.log('error');
+	}
+} while (Object.keys(personalMovieDB.movies).length < 2);
 
 /* const	lastMovie2 = prompt('One of the latest films you watched too', ''),
 	lastMovieRate2 = prompt('Please rate this film', '');
