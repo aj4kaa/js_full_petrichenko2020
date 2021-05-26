@@ -37,9 +37,34 @@
 
 // Код возьмите из предыдущего домашнего задания
 
+/* Задание на урок:
+
+1) Первую часть задания повторить по уроку
+
+2) Создать функцию showMyDB, которая будет проверять свойство privat. Если стоит в позиции
+false - выводит в консоль главный объект программы
+
+3) Создать функцию writeYourGenres в которой пользователь будет 3 раза отвечать на вопрос 
+"Ваш любимый жанр под номером ${номер по порядку}". Каждый ответ записывается в массив данных
+genres
+
+P.S. Функции вызывать не обязательно*/
+
+// Код возьмите из предыдущего домашнего задания
+
 'use strict';
 
-const numberOfFilms = +prompt("How much movies you watched?", "");
+let numberOfFilms;
+
+function start() {
+	numberOfFilms = +prompt("How much movies you watched?", "");
+
+	while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+		numberOfFilms = +prompt("How much movies you watched?", "");
+	}
+}
+
+start();
 
 const personalMovieDB = {
 	count: numberOfFilms,
@@ -49,28 +74,53 @@ const personalMovieDB = {
 	privat: false
 };
 
-if (numberOfFilms < 10) {
-	console.log("Просмотрено довольно мало фильмов");
-} else if (numberOfFilms >= 10 && numberOfFilms <= 30) {
-	console.log("Вы классический зритель");
-} else if (numberOfFilms > 30) {
-	console.log("Вы киноман");
-} else {
-	console.log("произошла ошибка");
-}
-
 // console.log(Object.keys(personalMovieDB.movies).length);
 
-/* for (let i = 1; i < 3; i++) {
-	let lastMovie = prompt('One of the latest films you watched', ''),
-		lastMovieRate = prompt('Please rate this film', '');
-		if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
-			personalMovieDB.movies[lastMovie] = lastMovieRate;
-		} else {
-			i--;
-			console.log('error');
-		}
-} */
+function rememberMyfilms() {
+	for (let i = 1; i < 3; i++) {
+		let lastMovie = prompt('One of the latest films you watched', ''),
+			lastMovieRate = prompt('Please rate this film', '');
+			if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
+				personalMovieDB.movies[lastMovie] = lastMovieRate;
+			} else {
+				i--;
+				console.log('error');
+			}
+	}
+}
+
+rememberMyfilms();
+
+function detectPersonalLevel() {
+	if (numberOfFilms < 10) {
+		console.log("Просмотрено довольно мало фильмов");
+	} else if (numberOfFilms >= 10 && numberOfFilms <= 30) {
+		console.log("Вы классический зритель");
+	} else if (numberOfFilms > 30) {
+		console.log("Вы киноман");
+	} else {
+		console.log("произошла ошибка");
+	}
+}
+
+detectPersonalLevel();
+
+function writeYourGenres() {
+	for (let i =1; i < 4; i++) {
+		personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, "");
+	}
+}
+
+writeYourGenres();
+
+function showMyDB(hidden) {
+	if (!hidden) {
+		console.log(personalMovieDB);
+	}
+}
+
+showMyDB(personalMovieDB.privat);
+
 
 /* while (Object.keys(personalMovieDB.movies).length < 2) {
 	let lastMovie = prompt('One of the latest films you watched', ''),
@@ -82,7 +132,7 @@ if (numberOfFilms < 10) {
 		}
 } */
 
-do {
+/* do {
 	let lastMovie = prompt('One of the latest films you watched', ''),
 	lastMovieRate = prompt('Please rate this film', '');
 	if (lastMovie != "" && lastMovie != null && lastMovie.length < 10) {
@@ -90,7 +140,7 @@ do {
 	} else {
 		console.log('error');
 	}
-} while (Object.keys(personalMovieDB.movies).length < 2);
+} while (Object.keys(personalMovieDB.movies).length < 2); */
 
 /* const	lastMovie2 = prompt('One of the latest films you watched too', ''),
 	lastMovieRate2 = prompt('Please rate this film', '');
@@ -98,4 +148,4 @@ do {
 personalMovieDB.movies[lastMovie] = lastMovieRate;
 personalMovieDB.movies[lastMovie2] = lastMovieRate2;
  */
-console.log(personalMovieDB);
+// console.log(personalMovieDB);
